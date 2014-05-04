@@ -45,7 +45,7 @@ public class List
 				top.prev = newNode;
 			top = newNode;
 		}
-		count++;
+		++count;
 		return newNode;
 	}
 
