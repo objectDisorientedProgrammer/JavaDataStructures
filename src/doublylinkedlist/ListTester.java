@@ -1,11 +1,12 @@
 package doublylinkedlist;
 
-public class ListTester {
-
+public class ListTester
+{
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		List stringList = new List();
 		Node c = stringList.insert(null, "one");
 		stringList.insert(null, "two");
