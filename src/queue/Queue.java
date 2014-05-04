@@ -1,6 +1,7 @@
 package queue;
 
-public class Queue {
+public class Queue
+{
 	private int numberOfItems;
 	private QNode front;
 	private QNode rear;
@@ -54,7 +55,7 @@ public class Queue {
 			front = temp.next;
 			if(front == null)	// if not more items the queue is empty
 				rear = null;
-			numberOfItems--;
+			--numberOfItems;
 		}
 		return temp.getItem();
 	}
@@ -62,24 +63,24 @@ public class Queue {
 	/**
 	 * @return the numberOfItems
 	 */
-	public int getNumberOfItems() {
+	public int getNumberOfItems()
+	{
 		return numberOfItems;
 	}
 
 	/**
 	 * @return the front
 	 */
-	public QNode getFront() {
+	public QNode getFront()
+	{
 		return front;
 	}
 
 	/**
 	 * @return the rear
 	 */
-	public QNode getRear() {
+	public QNode getRear()
+	{
 		return rear;
 	}
-	
-	
-
 }
