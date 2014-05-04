@@ -1,6 +1,7 @@
 package doublylinkedlist;
 
-public class Node {
+public class Node
+{
 	public Node prev;
 	public Node next;
 	private String text;
