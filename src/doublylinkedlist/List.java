@@ -1,6 +1,7 @@
 package doublylinkedlist;
 
-public class List {
+public class List
+{
 	private Node top;
 	private Node current;
 	private int count;
@@ -8,7 +9,8 @@ public class List {
 	/**
 	 * Create an empty list.
 	 */
-	public List() {
+	public List()
+	{
 		super();
 		this.top = null;
 		this.current = null;
@@ -108,22 +110,24 @@ public class List {
 	/**
 	 * @return the top node
 	 */
-	public Node getTop() {
+	public Node getTop()
+	{
 		return top;
 	}
 
 	/**
 	 * @return the current node
 	 */
-	public Node getCurrent() {
+	public Node getCurrent()
+	{
 		return current;
 	}
 
 	/**
 	 * @return the count
 	 */
-	public int getCount() {
+	public int getCount()
+	{
 		return count;
 	}
-
 }
