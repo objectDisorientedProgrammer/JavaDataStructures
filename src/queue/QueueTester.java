@@ -3,12 +3,13 @@ package queue;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class QueueTester {
-
+public class QueueTester
+{
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		Queue<Character> q = new LinkedList<Character>();
 		
 		q.add('f');
@@ -19,5 +20,4 @@ public class QueueTester {
 		while(!q.isEmpty())
 			System.out.println(q.remove());
 	}
-
 }
