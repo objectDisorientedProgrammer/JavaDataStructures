@@ -1,6 +1,7 @@
 package queue;
 
-public class QNode {
+public class QNode
+{
 	private int item;
 	public QNode next;
 	
@@ -25,14 +26,16 @@ public class QNode {
 	/**
 	 * @return the item
 	 */
-	public int getItem() {
+	public int getItem()
+	{
 		return item;
 	}
 
 	/**
 	 * @param item - the item to set
 	 */
-	public void setItem(int item) {
+	public void setItem(int item)
+	{
 		this.item = item;
 	}
 
