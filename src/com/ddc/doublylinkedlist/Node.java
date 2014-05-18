@@ -1,4 +1,4 @@
-package doublylinkedlist;
+package com.ddc.doublylinkedlist;
 
 public class Node
 {

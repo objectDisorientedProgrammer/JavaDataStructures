@@ -1,4 +1,4 @@
-package doublylinkedlist;
+package com.ddc.doublylinkedlist;
 
 public class List
 {
@@ -58,10 +58,11 @@ public class List
 	 * @return returns either the next (if applicable) or the previous (if
 	 *         applicable) node or null if there are no more nodes
 	 */
-	public Node delete(Node nodeToDel)
+	public Node delete(String name)
 	{
+		Node nodeToDel = findNode(name);
 		Node returnNode;
-		if(nodeToDel == null) // safety check
+		if(nodeToDel == null) // not in list
 			return null;
 		if(nodeToDel == top) // delete top
 		{
@@ -88,23 +89,44 @@ public class List
 				returnNode.next = null;
 			}
 		}
-
+		--count;
 		nodeToDel.prev = null;
 		nodeToDel.next = null;
 		return returnNode;
 	}
 	
 	/**
+	 * Find a node by name.
+	 * @param name - the name of the node.
+	 * @return the node if it exists in the list; otherwise null.
+	 */
+	private Node findNode(String name)
+	{
+		Node found;
+		for(found = top; found != null; found = found.next)
+			if(found.getText().equalsIgnoreCase(name))
+				return found;
+		return null;
+	}
+	
+	/**
 	 * Print the whole list from first to last.
 	 */
-	public void printEntireList()
+	public void printList()
 	{
-		current = top;
-		while(current != null)
+		if(count == 0)
+			System.out.println("list is empty!");
+		else
 		{
-			System.out.println(current.getText());
-			current = current.next;
+			StringBuilder sb = new StringBuilder("list = (");
+			for(current = top; current != null; current = current.next)
+				sb.append(current.getText()+")->(");
+			
+			sb.delete(sb.length() - 3, sb.length());
+			sb.append(" {elements:"+count + "}");
+			System.out.println(sb.toString());
 		}
+		
 	}
 
 	/**

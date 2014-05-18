@@ -1,32 +1,31 @@
-package queue;
+package com.ddc.queue;
 
-public class QNode
+public class QNode<E>
 {
-	private int item;
-	public QNode next;
+	private E item;
+	public QNode<E> next;
 	
 	public QNode()
 	{
 		super();
 		this.next = null;
-		this.setItem(0);
 	}
 	
 	/**
 	 * Create a QNode and set its value.
-	 * @param number - item for the QNode
+	 * @param character - item for the QNode
 	 */
-	public QNode(int number)
+	public QNode(E character)
 	{
 		super();
 		this.next = null;
-		this.setItem(number);
+		this.setItem(character);
 	}
 
 	/**
 	 * @return the item
 	 */
-	public int getItem()
+	public E getItem()
 	{
 		return item;
 	}
@@ -34,7 +33,7 @@ public class QNode
 	/**
 	 * @param item - the item to set
 	 */
-	public void setItem(int item)
+	public void setItem(E item)
 	{
 		this.item = item;
 	}
