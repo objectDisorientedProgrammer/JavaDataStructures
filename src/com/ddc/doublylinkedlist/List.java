@@ -1,9 +1,9 @@
 package com.ddc.doublylinkedlist;
 
-public class List
+public class List<T>
 {
-	private Node top;
-	private Node current;
+	private Node<T> top;
+	private Node<T> current;
 	private int count;
 
 	/**
@@ -18,18 +18,18 @@ public class List
 	}
 
 	/**
-	 * Inserts a node with the given text after the given node.
+	 * Inserts a node with the given element after the given node.
 	 * 
 	 * @param after
 	 *            - the new node will be inserted after this one. If after is
 	 *            null, the new node will be inserted at the top of the list.
-	 * @param text
-	 *            - text for the new node.
+	 * @param ele
+	 *            - element for the new node.
 	 * @return a reference to the new node.
 	 */
-	public Node insert(Node after, String text)
+	public Node<T> insert(Node<T> after, T ele)
 	{
-		Node newNode = new Node(text);
+		Node<T> newNode = new Node<T>(ele);
 
 		if(after != null) // not inserting at the top of the list
 		{
@@ -58,10 +58,10 @@ public class List
 	 * @return returns either the next (if applicable) or the previous (if
 	 *         applicable) node or null if there are no more nodes
 	 */
-	public Node delete(String name)
+	public Node<T> delete(T name)
 	{
-		Node nodeToDel = findNode(name);
-		Node returnNode;
+		Node<T> nodeToDel = findNode(name);
+		Node<T> returnNode;
 		if(nodeToDel == null) // not in list
 			return null;
 		if(nodeToDel == top) // delete top
@@ -100,17 +100,17 @@ public class List
 	 * @param name - the name of the node.
 	 * @return the node if it exists in the list; otherwise null.
 	 */
-	private Node findNode(String name)
+	private Node<T> findNode(T name)
 	{
-		Node found;
+		Node<T> found;
 		for(found = top; found != null; found = found.next)
-			if(found.getText().equalsIgnoreCase(name))
+			if(found.getElement() == name)
 				return found;
 		return null;
 	}
 	
 	/**
-	 * Print the whole list from first to last.
+	 * Print the list from first to last.
 	 */
 	public void printList()
 	{
@@ -120,9 +120,9 @@ public class List
 		{
 			StringBuilder sb = new StringBuilder("list = (");
 			for(current = top; current != null; current = current.next)
-				sb.append(current.getText()+")->(");
+				sb.append(current.getElement()+")<->(");
 			
-			sb.delete(sb.length() - 3, sb.length());
+			sb.delete(sb.length() - 4, sb.length());
 			sb.append(" {elements:"+count + "}");
 			System.out.println(sb.toString());
 		}
@@ -132,7 +132,7 @@ public class List
 	/**
 	 * @return the top node
 	 */
-	public Node getTop()
+	public Node<T> getTop()
 	{
 		return top;
 	}
@@ -140,7 +140,7 @@ public class List
 	/**
 	 * @return the current node
 	 */
-	public Node getCurrent()
+	public Node<T> getCurrent()
 	{
 		return current;
 	}
@@ -151,5 +151,15 @@ public class List
 	public int getCount()
 	{
 		return count;
+	}
+	
+	/**
+	 * Remove all nodes from the list.
+	 */
+	public void clear()
+	{
+		current = null;
+		top = null;
+		count = 0;
 	}
 }

@@ -46,16 +46,17 @@ public class MyQueue<E>
 	 */
 	public E remove()
 	{
-		QNode<E> temp;
-		
-		if(this.numberOfItems == 0)	// queue is empty, do nothing
-			return null; // TODO throw Empty exception
-		temp = front;
-		front = temp.next;
-		if(front == null)	// if not more items the queue is empty
-			rear = null;
-		--numberOfItems;
-		return temp.getItem();
+		if(this.numberOfItems != 0)	// queue is not empty, do something
+		{
+			QNode<E> temp;
+			temp = front;
+			front = temp.next;
+			if(front == null)	// if not more items the queue is empty
+				rear = null;
+			--numberOfItems;
+			return temp.getItem();
+		}
+		return null;
 	}
 
 	/**
@@ -82,6 +83,19 @@ public class MyQueue<E>
 		return rear;
 	}
 	
+	/**
+	 * Clear the queue.
+	 */
+	public void clear()
+	{
+		this.numberOfItems = 0;
+		this.front = null;
+		this.rear = null;
+	}
+	
+	/**
+	 * Print a formatted text representation of the queue.
+	 */
 	public void printQueue()
 	{
 		if(numberOfItems == 0)

@@ -1,31 +1,40 @@
 package com.ddc.doublylinkedlist;
 
-public class Node
+public class Node<T>
 {
-	public Node prev;
-	public Node next;
-	private String text;
+	public Node<T> prev;
+	public Node<T> next;
+	private T element;
 
 	public Node()
 	{
 		super();
-		this.text = "";
+		this.element = null;
 	}
 
 	/**
-	 * Create a node and set it's text.
-	 * @param strValue - string to set the text to.
+	 * Create a node and set it's element.
+	 * @param element - element to set put in the node.
 	 */
-	public Node(String strValue)
+	public Node(T element)
 	{
-		this.text = strValue;
+		this.element = element;
 	}
 
 	/**
-	 * @return the node's text
+	 * @return the node's element
 	 */
-	public String getText()
+	public T getElement()
 	{
-		return text;
+		return element;
+	}
+	
+	/**
+	 * Change the current element in the node.
+	 * @param newElement - the new value.
+	 */
+	public void setElement(T newElement)
+	{
+		this.element = newElement;
 	}
 }
